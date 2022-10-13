@@ -7,16 +7,44 @@
 .title{
     font-family: Silkscreen;
     font-size: calc(2rem + 1.5vw);
+    color: aliceblue;
 }
 
 .under_title{
     font-family: Teko;
     font-size: calc(0.75rem + 1.5vw);
+    color: aliceblue;
+    margin: 0;
 }
 .navbar{
-    background-color: gray;
+    background-color: black;
 }
 
-.nav-link{
-    color: azure;
+.navbar-nav .nav-link{
+    color: aliceblue;
+    font-family: Teko;
+    font-size: calc(0.6rem + 1vw);
+}
+
+.navbar-nav .dropdown-menu{
+    background-color: black;
+}
+
+.navbar-nav .dropdown-item{
+    color: aliceblue;
+    font-family: Teko;
+    font-size: calc(0.75rem + 0.8vw);
+
+}
+
+.jumbotron{
+    background-image: url("../images/buildings.jpg");
+}
+
+.col-sm-4{
+    padding-top: 1em;
+}
+.panel-heading{
+    font-family: Teko;
+    font-size: calc(0.75rem + 0.8vw);
 }
