@@ -48,3 +48,34 @@
     font-family: Teko;
     font-size: calc(0.75rem + 0.8vw);
 }
+footer{
+    background-color: black;
+}
+
+.footer-table{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+    margin: 0;
+}
+
+.footer-link{
+    text-decoration: none;
+    font-family: "Segoe UI";
+    color: aliceblue;
+}
+
+.footer-line{
+    text-align: left;
+    padding-bottom: 0.5em;
+    padding-top: 1em;
+}
+
+.footer-link:hover{
+    color: darkgray;
+}
+
+.footer-menu{
+    display: flex;
+}
