@@ -1,8 +1,22 @@
 .only_picture_logo{
     max-width: 100%;
     height: 50px;
+    border-radius: 50%;
 }
 
-h1{
+.title{
+    font-family: Silkscreen;
+    font-size: calc(2rem + 1.5vw);
+}
 
+.under_title{
+    font-family: Teko;
+    font-size: calc(0.75rem + 1.5vw);
+}
+.navbar{
+    background-color: gray;
+}
+
+.nav-link{
+    color: azure;
 }
