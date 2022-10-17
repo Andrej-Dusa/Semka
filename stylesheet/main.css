@@ -67,7 +67,7 @@ footer{
 }
 
 .footer-line{
-    text-align: left;
+    text-align: center;
     padding-bottom: 0.5em;
     padding-top: 1em;
 }
@@ -110,4 +110,11 @@ footer{
     color: aliceblue;
     font-family: 'Teko';
     font-size: calc(1rem + 0.5vw);
+}
+
+.copyright{
+    color: aliceblue;
+    padding-top: 0.5em;
+    font-size: calc(0.25em + 0.5vw);
+    margin-bottom: unset;
 }
