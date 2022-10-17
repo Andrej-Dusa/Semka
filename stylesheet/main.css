@@ -79,3 +79,10 @@ footer{
 .footer-menu{
     display: flex;
 }
+
+.simple_text{
+    text-align: justify;
+    color: aliceblue;
+    padding-left: 2em;
+    padding-right: 2em;
+}
