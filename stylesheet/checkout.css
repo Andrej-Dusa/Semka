@@ -6,6 +6,17 @@ h4{
     font-family: Silkscreen;
 }
 
+ul.list-group.mb-3{
+    border-radius: 4px;
+    border: solid black;
+    padding: 0.375rem 0.75rem;
+}
+
+li.list-group-item{
+    border: solid black;
+    padding: 0.375rem 0.75rem;
+}
+
 label{
     font-family: Teko;
     font-size: calc(0.6rem + 0.8vw);
@@ -20,5 +31,26 @@ input.form-control{
 select{
     border-radius: 4px;
     border: solid black;
-    padding: 0.375rem 0.75rem;;
+    padding: 0.375rem 0.75rem;
+}
+
+hr.mb-4{
+    border: 0.1em solid black;
+}
+
+.button-buy-checkout{
+    border-radius: 4px;
+    border-style: none;
+    background-color: darkred;
+    color: aliceblue;
+    font-family: 'Teko';
+    font-size: calc(2rem + 0.5vw);
+    margin-bottom: 1rem;
+    padding-right: 0.4em;
+    padding-left: 0.4em;
+}
+
+.img-cart{
+    width: 20%;
+    padding: 0.1em;
 }
