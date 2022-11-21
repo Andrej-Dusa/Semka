@@ -6,7 +6,7 @@ use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Shoes;
 
-class ProductController extends AControllerBase
+class ShoesController extends AControllerBase
 {
     public function authorize(string $action)
     {

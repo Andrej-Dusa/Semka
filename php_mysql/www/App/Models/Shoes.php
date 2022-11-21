@@ -8,7 +8,7 @@ class shoes extends \App\Core\Model
 {
     public int $id;
     public string $title;
-    public double $price;
+    public float $price;
     public string $image_ref;
     public string $description;
 
