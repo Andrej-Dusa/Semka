@@ -69,58 +69,11 @@
         </ul>
     </div>
 </nav>
-<!--Product gallery-->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="panel panel-primary">
-                <div class="panel-body"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4f37fca8-6bce-43e7-ad07-f57ae3c13142/air-force-1-07-mens-shoes-5QFp5Z.png" class="img-responsive" style="width:100%" alt="Image"></div>
-                <div class="panel-heading">Nike Air Force 1 '07</div>
-                <div class="panel-footer">119,95€</div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="panel panel-danger">
-                <div class="panel-body"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/585f399c-2ae5-4e12-9a4e-df531c0de400/air-jordan-1-retro-high-og-shoe-PLe8kL.png" class="img-responsive" style="width:100%" alt="Image"></div>
-                <div class="panel-heading">Jordan 1 Shoes. Nike VN</div>
-                <div class="panel-footer">134,95€</div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="panel panel-success">
-                <div class="panel-body"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/209889d9-4910-4f06-9d07-18afa558b566/air-max-270-mens-shoes-KkLcGR.png" class="img-responsive" style="width:100%" alt="Image"></div>
-                <div class="panel-heading">Nike Air Max 270</div>
-                <div class="panel-footer">109,95€</div>
-            </div>
-        </div>
+<div class="container-fluid mt-3">
+    <div class="web-content">
+        <?= $contentHTML ?>
     </div>
-</div><br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="panel panel-primary">
-                <div class="panel-body"><img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/09dedabadd1a4ce187efaeb5004965bc_9366/ozelia-shoes.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-                <div class="panel-heading">Adidas Ozelia</div>
-                <div class="panel-footer">144,95€</div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="panel panel-primary">
-                <div class="panel-body"><img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/3b6da90d6e7c41fa821ca60600991dd9_9366/gazelle-shoes.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-                <div class="panel-heading">Adidas Gazelle</div>
-                <div class="panel-footer">99,95€</div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="panel panel-primary">
-                <div class="panel-body"><img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/1a26b91573114286ba67ae7400ff767e_9366/nmd_r1-shoes.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-                <div class="panel-heading">Adidas NMD_R1</div>
-                <div class="panel-footer">129,95€</div>
-            </div>
-        </div>
-    </div>
-</div><br><br>
+</div>
 <!--Footer-->
 <footer class="container-fluid text-center">
     <p class="under_title">Autumn style</p>
