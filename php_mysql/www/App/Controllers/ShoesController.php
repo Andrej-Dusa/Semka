@@ -34,14 +34,14 @@ class ShoesController extends AControllerBase
         if ($post != null) {
             $post->delete();
         }
-        return $this->redirect();
+        return $this->redirect("?c=shoes");
     }
 
     public function edit(): Response{
         $id = $this->request()->getValue("id");
         $post = Shoes::getOne($id);
         if ($post != null) {
-            $post->$this->redirect("?c=shoes");
+            return $this->redirect("?c=shoes");
         }
         return $this->html($post);
     }

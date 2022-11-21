@@ -24,27 +24,27 @@
     <div class="row">
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Add post</h4>
-            <form class="needs-validation" novalidate>
+            <form action="?c=shoes&a=add" method="post">
                 <div class="row">
                     <div class=" mb-3">
                         <label for="text">Title</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Enter title">
+                        <input type="text" class="form-control" name="title" id="firstName" placeholder="Enter title">
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="text"></label>
-                    <input type="text" class="form-control" id="email" placeholder="Enter image reference">
+                    <input type="text" class="form-control" name="image_ref" id="email" placeholder="Enter image reference">
                 </div>
 
                 <div class="mb-3">
                     <label for="text"></label>
-                    <input type="text" class="form-control" id="email" placeholder="Enter Price">
+                    <input type="text" class="form-control" name="price" id="email" placeholder="Enter Price">
                 </div>
 
                 <div class="mb-3">
                     <label for="text"></label>
-                    <input type="text" class="form-control" id="email" placeholder="Enter descritpion">
+                    <input type="text" class="form-control" name="description" id="email" placeholder="Enter descritpion">
                 </div>
                 <hr class="mb-4">
                 <button class="button-buy-checkout" type="submit">Submit</button>
