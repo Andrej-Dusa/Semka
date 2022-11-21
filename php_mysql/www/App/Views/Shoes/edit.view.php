@@ -1,5 +1,4 @@
-<?php
-?>
+<?php /**@var \App\Models\Shoes $data*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,27 +23,27 @@
     <div class="row">
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Add post</h4>
-            <form action="?c=shoes&a=add" method="post">
+            <form action="?c=shoes&a=save&id=<?= $data->getId()?>" method="post" onsubmit="return validateInput()">
                 <div class="row">
                     <div class=" mb-3">
                         <label for="text">Title</label>
-                        <input type="text" class="form-control" name="title" id="titleIN" placeholder="Enter title">
+                        <input type="text" class="form-control" name="title" id="titleIN" value="<?= $data->getTitle()?>">
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="text"></label>
-                    <input type="text" class="form-control" name="image_ref" id="imageIN" placeholder="Enter image reference">
+                    <input type="text" class="form-control" name="image_ref" id="imageIn" value="<?= $data->getImageRef()?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="text"></label>
-                    <input type="text" class="form-control" name="price" id="priceIN" placeholder="Enter Price">
+                    <input type="text" class="form-control" name="price" id="priceIn" value="<?= $data->getPrice()?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="text"></label>
-                    <input type="text" class="form-control" name="description" id="descriptionIN" placeholder="Enter descritpion">
+                    <input type="text" class="form-control" name="description" id="descriptionIN" value="<?= $data->getDescription()?>">
                 </div>
                 <hr class="mb-4">
                 <button class="button-buy-checkout" type="submit">Submit</button>

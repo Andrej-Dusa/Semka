@@ -41,7 +41,7 @@ class ShoesController extends AControllerBase
         $id = $this->request()->getValue("id");
         $post = Shoes::getOne($id);
         if ($post != null) {
-            return $this->redirect("?c=shoes");
+            return $this->html($post, 'edit');
         }
         return $this->html($post);
     }
@@ -50,5 +50,21 @@ class ShoesController extends AControllerBase
     {
         $posts = Shoes::getAll();
         return $this->html($posts);
+    }
+
+    public function save(): Response
+    {
+        $id = $this->request()->getValue("id");
+        $data = $this->request()->getPost();
+        $post = Shoes::getOne($id);
+        if (isset($data["title"])) {
+            $post->setTitle($data["title"]);
+            $post->setImageRef($data["image_ref"]);
+            $post->setPrice($data["price"]);
+            $post->setDescription($data["description"]);
+            $post->save();
+            return $this->redirect("?c=shoes");
+        }
+        return $this->html($post, 'edit');
     }
 }
