@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class=" mb-3">
                         <label for="text">Title</label>
-                        <input type="text" class="form-control" name="title" id="titleIN" value="<?= $data->getTitle()?>">
+                        <input type="text" class="form-control" name="title" id="titleIn" value="<?= $data->getTitle()?>">
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
 
                 <div class="mb-3">
                     <label for="text"></label>
-                    <input type="text" class="form-control" name="description" id="descriptionIN" value="<?= $data->getDescription()?>">
+                    <input type="text" class="form-control" name="description" id="descriptionIn" value="<?= $data->getDescription()?>">
                 </div>
                 <hr class="mb-4">
                 <button class="button-buy-checkout" type="submit">Submit</button>

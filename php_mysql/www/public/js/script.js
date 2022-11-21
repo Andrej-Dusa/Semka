@@ -1,11 +1,15 @@
 function validateInput() {
-    let price = document.getElementById("priceIN").value;
-    if (price.isNaN() && price < 0) {
+    let price = document.getElementById("priceIn").value;
+    if (isNaN(price)) {
         alert("Price is not a number or it is lower then 0");
         return false
     }
+    if(price < 0) {
+        alert("Price can`t be lower then 0");
+        return false
+    }
 
-    let title = document.getElementById("titleIN").value;
+    let title = document.getElementById("titleIn").value;
     if (title == "") {
         alert("Title must be filled");
         return false
@@ -15,14 +19,14 @@ function validateInput() {
         return false
     }
 
-    let description = document.getElementById("descriptionIN").value;
+    let description = document.getElementById("descriptionIn").value;
     if (description == "") {
         alert("Description must be filled");
         return false
     }
 
     let image = document.getElementById("imageIn").value;
-    if (!(image.startsWith("http."))) {
+    if (!(image.startsWith("https"))) {
         alert("Image reference does not start with http.");
         return false
     }
