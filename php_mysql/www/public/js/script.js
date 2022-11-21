@@ -5,7 +5,7 @@ function validateInput() {
         return false
     }
     if(price < 0) {
-        alert("Price can`t be lower then 0");
+        alert("Price can't be lower then 0");
         return false
     }
 
