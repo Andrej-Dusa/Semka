@@ -23,11 +23,11 @@
     <div class="row">
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Add post</h4>
-            <form action="?c=shoes&a=save&id=<?= $data->getId()?>" method="post" onsubmit="return validateInput()">
+            <form action="?c=shoes&a=save&id=<?= $data->getId()?>" method="post"" onsubmit="return validateInput()>
                 <div class="row">
                     <div class=" mb-3">
                         <label for="text">Title</label>
-                        <input type="text" class="form-control" name="title" id="titleIn" value="<?= $data->getTitle()?>">
+                        <input type="text" class="form-control" name="title" id="titleInf" value="<?= $data->getTitle()?>">
                     </div>
                 </div>
 
