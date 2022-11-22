@@ -62,8 +62,40 @@ class ShoesController extends AControllerBase
             $post->setImageRef($data["image_ref"]);
             $post->setPrice($data["price"]);
             $post->setDescription($data["description"]);
-            $post->save();
-            return $this->redirect("?c=shoes");
+
+            $title = $_POST("title");
+            $image_ref = $_POST("image_ref");
+            $price = $_POST("price");
+            $description = $_POST("description");
+
+            if (empty($title)) {
+                $titleErr = "Title can't be empty!";
+                echo "<br><div class='center red-text'>$titleErr</div>";
+            } else if (strlen($title) > 100) {
+                $titleErr = "Title can't be longer then 100 characters!";
+                echo "<br><div class='center red-text'>$titleErr</div>";
+            } else if (empty($image_ref)) {
+                $image_refErr = "Image reference can't be empty!";
+                echo "<br><div class='center red-text'>$image_refErr</div>";
+            } else if (strlen($image_ref) > 300) {
+                $image_refErr = "Image reference can't be longer then 300 characters!";
+                echo "<br><div class='center red-text'>$image_refErr</div>";
+            } else if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$image_ref)) {
+                $image_refErr = "Image reference is not valid!";
+                echo "<br><div class='center red-text'>$image_refErr</div>";
+            } else if (is_nan($price)) {
+                $priceErr = "Price must be a number!";
+                echo "<br><div class='center red-text'>$priceErr</div>";
+            } else if ($price > 0) {
+                $priceErr = "Price can't be lower then 0!";
+                echo "<br><div class='center red-text'>$priceErr</div>";
+            } else if (empty($description)) {
+                $descriptionErr = "Description can't be empty!";
+                echo "<br><div class='center red-text'>$descriptionErr</div>";
+            } else {
+                $post->save();
+                return $this->redirect("?c=shoes");
+            }
         }
         return $this->html($post, 'edit');
     }

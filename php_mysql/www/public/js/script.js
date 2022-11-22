@@ -34,5 +34,9 @@ function validateInput() {
         alert("Image reference cant be longer then 300 characters");
         return false
     }
+    if (image == "") {
+        alert("Image reference must be filled");
+        return false
+    }
     return true;
 }
