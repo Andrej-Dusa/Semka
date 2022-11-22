@@ -30,28 +30,28 @@ class ShoesController extends AControllerBase
 
             if (empty($title)) {
                 $titleErr = "Title can't be empty!";
-                echo "<br><div class='center red-text'>$titleErr</div>";
+                echo "<br><div class='center text-danger'>$titleErr</div>";
             } else if (strlen($title) > 100) {
                 $titleErr = "Title can't be longer then 100 characters!";
-                echo "<br><div class='center red-text'>$titleErr</div>";
+                echo "<br><div class='center text-danger'>$titleErr</div>";
             } else if (empty($image_ref)) {
                 $image_refErr = "Image reference can't be empty!";
-                echo "<br><div class='center red-text'>$image_refErr</div>";
+                echo "<br><div class='center text-danger'>$image_refErr</div>";
             } else if (strlen($image_ref) > 300) {
                 $image_refErr = "Image reference can't be longer then 300 characters!";
-                echo "<br><div class='center red-text'>$image_refErr</div>";
+                echo "<br><div class='center text-danger'>$image_refErr</div>";
             } else if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$image_ref)) {
                 $image_refErr = "Image reference is not valid!";
-                echo "<br><div class='center red-text'>$image_refErr</div>";
+                echo "<br><div class='center text-danger'>$image_refErr</div>";
             } else if (is_nan($price)) {
                 $priceErr = "Price must be a number!";
-                echo "<br><div class='center red-text'>$priceErr</div>";
+                echo "<br><div class='center text-danger'>$priceErr</div>";
             } else if ($price < 0) {
                 $priceErr = "Price can't be lower then 0!";
-                echo "<br><div class='center red-text'>$priceErr</div>";
+                echo "<br><div class='center text-danger'>$priceErr</div>";
             } else if (empty($description)) {
                 $descriptionErr = "Description can't be empty!";
-                echo "<br><div class='center red-text'>$descriptionErr</div>";
+                echo "<br><div class='center text-danger'>$descriptionErr</div>";
             } else {
                 $post->save();
                 return $this->redirect("?c=shoes");
@@ -102,28 +102,28 @@ class ShoesController extends AControllerBase
 
             if (empty($title)) {
                 $titleErr = "Title can't be empty!";
-                echo "<br><div class='center red-text'>$titleErr</div>";
+                echo "<br><div class='center text-danger'>$titleErr</div>";
             } else if (strlen($title) > 100) {
                 $titleErr = "Title can't be longer then 100 characters!";
-                echo "<br><div class='center red-text'>$titleErr</div>";
+                echo "<br><div class='center text-danger'>$titleErr</div>";
             } else if (empty($image_ref)) {
                 $image_refErr = "Image reference can't be empty!";
-                echo "<br><div class='center red-text'>$image_refErr</div>";
+                echo "<br><div class='center text-danger'>$image_refErr</div>";
             } else if (strlen($image_ref) > 300) {
                 $image_refErr = "Image reference can't be longer then 300 characters!";
-                echo "<br><div class='center red-text'>$image_refErr</div>";
+                echo "<br><div class='center text-danger'>$image_refErr</div>";
             } else if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$image_ref)) {
                 $image_refErr = "Image reference is not valid!";
-                echo "<br><div class='center red-text'>$image_refErr</div>";
+                echo "<br><div class='center text-danger'>$image_refErr</div>";
             } else if (is_nan($price)) {
                 $priceErr = "Price must be a number!";
-                echo "<br><div class='center red-text'>$priceErr</div>";
+                echo "<br><div class='center text-danger'>$priceErr</div>";
             } else if ($price < 0) {
                 $priceErr = "Price can't be lower then 0!";
-                echo "<br><div class='center red-text'>$priceErr</div>";
+                echo "<br><div class='center text-danger'>$priceErr</div>";
             } else if (empty($description)) {
                 $descriptionErr = "Description can't be empty!";
-                echo "<br><div class='center red-text'>$descriptionErr</div>";
+                echo "<br><div class='center text-danger'>$descriptionErr</div>";
             } else {
                 $post->save();
                 return $this->redirect("?c=shoes");
