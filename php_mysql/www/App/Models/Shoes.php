@@ -11,6 +11,23 @@ class shoes extends \App\Core\Model
     public float $price;
     public string $image_ref;
     public string $description;
+    public int $sale;
+
+    /**
+     * @return int
+     */
+    public function getSale(): int
+    {
+        return $this->sale;
+    }
+
+    /**
+     * @param int $sale
+     */
+    public function setSale(int $sale): void
+    {
+        $this->sale = $sale;
+    }
 
     /**
      * @return int
