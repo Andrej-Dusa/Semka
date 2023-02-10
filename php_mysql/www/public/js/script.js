@@ -27,7 +27,7 @@ function validateInput() {
 
     let image = document.getElementById("imageIn").value;
     if (!(image.startsWith("https"))) {
-        alert("Image reference does not start with http.");
+        alert("Image reference does not start with https.");
         return false
     }
     if (image > 300) {
