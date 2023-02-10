@@ -57,9 +57,22 @@ class UserController extends AControllerBase
                 $descriptionErr = "Description can't be empty!";
                 echo "<br><div class='center text-danger'>$descriptionErr</div>";
             } else {
-                $post->setPassword($password1);
-                $post->save();
-                return $this->redirect("?c=auth&a=login");
+                $isIn = false;
+                $allUsers = User::getAll();
+                foreach ($allUsers as $customer) {
+                    if ($customer->getEmail() == $data["email"]) {
+                        $emailErr = "Email is already being used!";
+                        echo "<br><div class='center text-danger'>$emailErr</div>";
+                        $isIn = true;
+                    }
+                }
+                if ($isIn) {
+                    return $this->html();
+                } else {
+                    $post->setPassword($password1);
+                    $post->save();
+                    return $this->redirect("?c=auth&a=login");
+                }
             }
         }
         return $this->html();
@@ -133,9 +146,22 @@ class UserController extends AControllerBase
                 $descriptionErr = "Description can't be empty!";
                 echo "<br><div class='center text-danger'>$descriptionErr</div>";
             } else {
-                $post->setPassword($password1);
-                $post->save();
-                return $this->redirect("?c=auth&a=login");
+                $isIn = false;
+                $allUsers = User::getAll();
+                foreach ($allUsers as $customer) {
+                    if ($customer->getEmail() == $data["email"]) {
+                        $emailErr = "Email is already being used!";
+                        echo "<br><div class='center text-danger'>$emailErr</div>";
+                        $isIn = true;
+                    }
+                }
+                if ($isIn) {
+                    return $this->html($post, 'edit');
+                } else {
+                    $post->setPassword($password1);
+                    $post->save();
+                    return $this->redirect("?c=auth&a=login");
+                }
             }
         }
         return $this->html($post, 'edit');
