@@ -42,7 +42,7 @@ $layout = 'auth';
                         </div>
                         <div class="text-center">
                             <button class="button-buy" type="submit" name="submit">Sign in</button>
-                            <p class ="text">Not a member? <a href="#!">Register</a></p>
+                            <p class ="text">Not a member? <a href="?c=user&a=register">Register</a></p>
                         </div>
                     </form>
                 </div>

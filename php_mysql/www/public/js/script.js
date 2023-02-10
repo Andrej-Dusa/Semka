@@ -40,3 +40,57 @@ function validateInput() {
     }
     return true;
 }
+
+function validateRegistration() {
+    let name = document.getElementById("nameIn").value;
+    if (name == "") {
+        alert("Name reference must be filled");
+        return false
+    }
+    if (name > 100) {
+        alert("Name cant be longer then 100 characters");
+        return false
+    }
+
+    let email = document.getElementById("emailIn").value;
+    if (email == "") {
+        alert("Email must be filled");
+        return false
+    }
+    if (email > 100) {
+        alert("Email cant be longer then 100 characters");
+        return false
+    }
+
+    let surname = document.getElementById("surnameIn").value;
+    if (surname == "") {
+        alert("Surname must be filled");
+        return false
+    }
+
+    if (surname > 100) {
+        alert("Surname cant be longer then 100 characters");
+        return false
+    }
+
+    let password1 = document.getElementById("password1In").value;
+    if (password1 > 3) {
+        alert("Password must be lobger then 3 characters");
+        return false
+    }
+
+    let password2 = document.getElementById("password2In").value;
+    if (password2 > 3) {
+        alert("Password must be lobger then 3 characters");
+        return false
+    }
+    if (password1 != password2) {
+        alert("Passwords are not matching");
+        return false
+    }
+    if (password1 > 100 || password2 > 100) {
+        alert("Password cant be longer then 100 characters");
+        return false
+    }
+    return true;
+}
