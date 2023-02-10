@@ -66,7 +66,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <button class="button-sign ms-auto">Sign in</button>
+                <a class="nav-link" href="?c=auth&a=login">Log in</a>
             </li>
         </ul>
     </div>

@@ -63,8 +63,9 @@
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
+            <span class="example-spacer"></span>
             <li class="nav-item">
-                <button class="button-sign ms-auto">Sign in</button>
+                <a class="nav-link login" href="?c=auth&a=login">Log in</a>
             </li>
         </ul>
     </div>

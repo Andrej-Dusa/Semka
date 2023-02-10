@@ -13,7 +13,7 @@ class UserController extends AControllerBase
         return true;
     }
 
-    public function add(): Response
+    public function register(): Response
     {
         $data = $this->request()->getPost();
         if (isset($data["name"])) {
@@ -21,40 +21,45 @@ class UserController extends AControllerBase
             $post->setName($data["name"]);
             $post->setSurname($data["surname"]);
             $post->setEmail($data["email"]);
-            $post->setDescription($data["description"]);
+            $post->setAdmin(false);
 
-            $title = $data["title"];
-            $image_ref = $data["image_ref"];
-            $price = $data["price"];
-            $description = $data["description"];
+            $name = $data["name"];
+            $surname = $data["surname"];
+            $password1 = password_hash($data["password1"], PASSWORD_BCRYPT);
+            $password2 = password_hash($data["password2"], PASSWORD_BCRYPT);
+            $email = $data["email"];
 
-            if (empty($title)) {
-                $titleErr = "Title can't be empty!";
-                echo "<br><div class='center text-danger'>$titleErr</div>";
-            } else if (strlen($title) > 100) {
-                $titleErr = "Title can't be longer then 100 characters!";
-                echo "<br><div class='center text-danger'>$titleErr</div>";
-            } else if (empty($image_ref)) {
-                $image_refErr = "Image reference can't be empty!";
-                echo "<br><div class='center text-danger'>$image_refErr</div>";
-            } else if (strlen($image_ref) > 300) {
-                $image_refErr = "Image reference can't be longer then 300 characters!";
-                echo "<br><div class='center text-danger'>$image_refErr</div>";
-            } else if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$image_ref)) {
-                $image_refErr = "Image reference is not valid!";
-                echo "<br><div class='center text-danger'>$image_refErr</div>";
-            } else if (is_nan($price)) {
-                $priceErr = "Price must be a number!";
-                echo "<br><div class='center text-danger'>$priceErr</div>";
-            } else if ($price < 0) {
-                $priceErr = "Price can't be lower then 0!";
-                echo "<br><div class='center text-danger'>$priceErr</div>";
+            if (empty($name)) {
+                $nameErr = "Name can't be empty!";
+                echo "<br><div class='center text-danger'>$nameErr</div>";
+            } else if (strlen($name) > 100) {
+                $nameErr = "Name can't be longer then 100 characters!";
+                echo "<br><div class='center text-danger'>$nameErr</div>";
+            } else if (empty($surname)) {
+                $surnameErr = "Surename can't be empty!";
+                echo "<br><div class='center text-danger'>$surnameErr</div>";
+            } else if (strlen($surname) > 100) {
+                $surnameErr = "Surname can't be longer then 100 characters!";
+                echo "<br><div class='center text-danger'>$surnameErr</div>";
+            } else if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i",$email)) {
+                $emailErr = "Email is not valid!";
+                echo "<br><div class='center text-danger'>$emailErr</div>";
+            }else if (empty($email)) {
+                $emailErr = "Email can't be empty!";
+                echo "<br><div class='center text-danger'>$emailErr</div>";
+            }else if ($password1 != $password2) {
+                $passwrodErr = "Passwords must be matching!";
+                echo "<br><div class='center text-danger'>$passwrodErr</div>";
+            } else if (strlen($password1) < 0) {
+                $passwrodErr = "Password must be longer then 0!";
+                echo "<br><div class='center text-danger'>$passwrodErr</div>";
             } else if (empty($description)) {
                 $descriptionErr = "Description can't be empty!";
                 echo "<br><div class='center text-danger'>$descriptionErr</div>";
             } else {
+                $post->setPassword($password1);
                 $post->save();
-                return $this->redirect("?c=shoes");
+                return $this->redirect("?c=auth&a=login");
             }
         }
         return $this->html();
@@ -62,7 +67,7 @@ class UserController extends AControllerBase
 
     public function delete(): Response{
         $id = $this->request()->getValue("id");
-        $post = Shoes::getOne($id);
+        $post = User::getOne($id);
         if ($post != null) {
             $post->delete();
         }
@@ -71,7 +76,7 @@ class UserController extends AControllerBase
 
     public function edit(): Response{
         $id = $this->request()->getValue("id");
-        $post = Shoes::getOne($id);
+        $post = User::getOne($id);
         if ($post != null) {
             return $this->html($post, 'edit');
         }
@@ -80,53 +85,57 @@ class UserController extends AControllerBase
 
     public function index(): Response
     {
-        $posts = Shoes::getAll();
+        $posts = User::getAll();
         return $this->html($posts);
     }
 
     public function save(): Response
     {
-        $id = $this->request()->getValue("id");
         $data = $this->request()->getPost();
-        $post = Shoes::getOne($id);
-        if (isset($data["title"])) {
-            $post->setTitle($data["title"]);
-            $post->setImageRef($data["image_ref"]);
-            $post->setPrice($data["price"]);
-            $post->setDescription($data["description"]);
+        if (isset($data["name"])) {
+            $post = new User();
+            $post->setName($data["name"]);
+            $post->setSurname($data["surname"]);
+            $post->setEmail($data["email"]);
+            $post->setAdmin(false);
 
-            $title = $data["title"];
-            $image_ref = $data["image_ref"];
-            $price = $data["price"];
-            $description = $data["description"];
+            $name = $data["name"];
+            $surname = $data["surname"];
+            $password1 = password_hash($data["password1"], PASSWORD_BCRYPT);
+            $password2 = password_hash($data["password2"], PASSWORD_BCRYPT);
+            $email = $data["email"];
 
-            if (empty($title)) {
-                $titleErr = "Title can't be empty!";
-                echo "<br><div class='center text-danger'>$titleErr</div>";
-            } else if (strlen($title) > 100) {
-                $titleErr = "Title can't be longer then 100 characters!";
-                echo "<br><div class='center text-danger'>$titleErr</div>";
-            } else if (empty($image_ref)) {
-                $image_refErr = "Image reference can't be empty!";
-                echo "<br><div class='center text-danger'>$image_refErr</div>";
-            } else if (strlen($image_ref) > 300) {
-                $image_refErr = "Image reference can't be longer then 300 characters!";
-                echo "<br><div class='center text-danger'>$image_refErr</div>";
-            } else if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$image_ref)) {
-                $image_refErr = "Image reference is not valid!";
-                echo "<br><div class='center text-danger'>$image_refErr</div>";
-            } else if (is_nan($price)) {
-                $priceErr = "Price must be a number!";
-                echo "<br><div class='center text-danger'>$priceErr</div>";
-            } else if ($price < 0) {
-                $priceErr = "Price can't be lower then 0!";
-                echo "<br><div class='center text-danger'>$priceErr</div>";
+            if (empty($name)) {
+                $nameErr = "Name can't be empty!";
+                echo "<br><div class='center text-danger'>$nameErr</div>";
+            } else if (strlen($name) > 100) {
+                $nameErr = "Name can't be longer then 100 characters!";
+                echo "<br><div class='center text-danger'>$nameErr</div>";
+            } else if (empty($surname)) {
+                $surnameErr = "Surename can't be empty!";
+                echo "<br><div class='center text-danger'>$surnameErr</div>";
+            } else if (strlen($surname) > 100) {
+                $surnameErr = "Surname can't be longer then 100 characters!";
+                echo "<br><div class='center text-danger'>$surnameErr</div>";
+            } else if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i",$email)) {
+                $emailErr = "Email is not valid!";
+                echo "<br><div class='center text-danger'>$emailErr</div>";
+            }else if (empty($email)) {
+                $emailErr = "Email can't be empty!";
+                echo "<br><div class='center text-danger'>$emailErr</div>";
+            }else if ($password1 != $password2) {
+                $passwrodErr = "Passwords must be matching!";
+                echo "<br><div class='center text-danger'>$passwrodErr</div>";
+            } else if (strlen($password1) < 0) {
+                $passwrodErr = "Password must be longer then 0!";
+                echo "<br><div class='center text-danger'>$passwrodErr</div>";
             } else if (empty($description)) {
                 $descriptionErr = "Description can't be empty!";
                 echo "<br><div class='center text-danger'>$descriptionErr</div>";
             } else {
+                $post->setPassword($password1);
                 $post->save();
-                return $this->redirect("?c=shoes");
+                return $this->redirect("?c=auth&a=login");
             }
         }
         return $this->html($post, 'edit');
