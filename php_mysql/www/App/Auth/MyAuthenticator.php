@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Core\IAuthenticator;
 
 /**
- * Class DummyAuthenticator
+ * Class MyAuthenticator
  * Basic implementation of user authentication
  * @package App\Auth
  */
@@ -61,8 +61,7 @@ class MyAuthenticator implements IAuthenticator
      */
     function getLoggedUserName(): string
     {
-
-        return isset($_SESSION['user']) ? $_SESSION['user'] : throw new \Exception("User not logged in");
+        return $_SESSION['user']->getName() ?? throw new \Exception("User not logged in");
     }
 
     /**

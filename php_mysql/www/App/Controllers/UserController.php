@@ -21,12 +21,12 @@ class UserController extends AControllerBase
             $post->setName($data["name"]);
             $post->setSurname($data["surname"]);
             $post->setEmail($data["email"]);
-            $post->setAdmin(false);
+            $post->setAdmin(0);
 
             $name = $data["name"];
             $surname = $data["surname"];
-            $password1 = password_hash($data["password1"], PASSWORD_BCRYPT);
-            $password2 = password_hash($data["password2"], PASSWORD_BCRYPT);
+            $password1 = $data["password1"];
+            $password2 = $data["password2"];
             $email = $data["email"];
 
             if (empty($name)) {
@@ -53,9 +53,6 @@ class UserController extends AControllerBase
             } else if (strlen($password1) < 0) {
                 $passwrodErr = "Password must be longer then 0!";
                 echo "<br><div class='center text-danger'>$passwrodErr</div>";
-            } else if (empty($description)) {
-                $descriptionErr = "Description can't be empty!";
-                echo "<br><div class='center text-danger'>$descriptionErr</div>";
             } else {
                 $isIn = false;
                 $allUsers = User::getAll();
@@ -69,6 +66,7 @@ class UserController extends AControllerBase
                 if ($isIn) {
                     return $this->html();
                 } else {
+                    $password1 = password_hash($data["password1"], PASSWORD_BCRYPT);
                     $post->setPassword($password1);
                     $post->save();
                     return $this->redirect("?c=auth&a=login");
@@ -110,7 +108,7 @@ class UserController extends AControllerBase
             $post->setName($data["name"]);
             $post->setSurname($data["surname"]);
             $post->setEmail($data["email"]);
-            $post->setAdmin(false);
+            $post->setAdmin(0);
 
             $name = $data["name"];
             $surname = $data["surname"];

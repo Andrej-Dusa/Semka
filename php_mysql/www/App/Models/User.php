@@ -11,7 +11,7 @@ class User extends \App\Core\Model
     public string $name;
     public string $surname;
     public string $password;
-    public bool $admin;
+    public int $admin;
 
     /**
      * @return int
@@ -102,9 +102,9 @@ class User extends \App\Core\Model
     }
 
     /**
-     * @param bool $admin
+     * @param int $admin
      */
-    public function setAdmin(bool $admin): void
+    public function setAdmin(int $admin): void
     {
         $this->admin = $admin;
     }

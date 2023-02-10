@@ -66,7 +66,11 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="?c=auth&a=login">Log in</a>
+                <?php if (!$auth->isLogged()) { ?>
+                    <a class="nav-link login" href="?c=auth&a=login">Log in</a>
+                <?php } else { ?>
+                    <a class="nav-link login" href="?c=auth&a=logout">Log out</a>
+                <?php } ?>
             </li>
         </ul>
     </div>
