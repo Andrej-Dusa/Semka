@@ -94,9 +94,9 @@ class User extends \App\Core\Model
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function isAdmin(): bool
+    public function getAdmin(): int
     {
         return $this->admin;
     }

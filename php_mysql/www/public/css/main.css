@@ -141,3 +141,7 @@ footer{
 .example-spacer{
     flex: 1 0 auto;
 }
+
+.col-sm-4 {
+    cursor:pointer;
+}
