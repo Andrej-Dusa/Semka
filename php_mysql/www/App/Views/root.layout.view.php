@@ -45,7 +45,7 @@
                 <a class="nav-link" href="#">Clothing</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Men</a>
+                <a class="nav-link" href="?c=user&a=edit&id=<?= $auth->getLoggedUserId()->getId()?>">Men</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Woman</a>

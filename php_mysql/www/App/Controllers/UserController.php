@@ -102,9 +102,10 @@ class UserController extends AControllerBase
 
     public function save(): Response
     {
+        $id = $this->request()->getValue("id");
         $data = $this->request()->getPost();
+        $post = User::getOne($id);
         if (isset($data["name"])) {
-            $post = new User();
             $post->setName($data["name"]);
             $post->setSurname($data["surname"]);
             $post->setEmail($data["email"]);
@@ -112,8 +113,8 @@ class UserController extends AControllerBase
 
             $name = $data["name"];
             $surname = $data["surname"];
-            $password1 = password_hash($data["password1"], PASSWORD_BCRYPT);
-            $password2 = password_hash($data["password2"], PASSWORD_BCRYPT);
+            $password1 = $data["password1"];
+            $password2 = $data["password2"];
             $email = $data["email"];
 
             if (empty($name)) {
@@ -140,14 +141,11 @@ class UserController extends AControllerBase
             } else if (strlen($password1) < 0) {
                 $passwrodErr = "Password must be longer then 0!";
                 echo "<br><div class='center text-danger'>$passwrodErr</div>";
-            } else if (empty($description)) {
-                $descriptionErr = "Description can't be empty!";
-                echo "<br><div class='center text-danger'>$descriptionErr</div>";
             } else {
                 $isIn = false;
                 $allUsers = User::getAll();
                 foreach ($allUsers as $customer) {
-                    if ($customer->getEmail() == $data["email"]) {
+                    if ($customer->getEmail() == $data["email"] && $customer->getId() != $_SESSION['user']->getId()) {
                         $emailErr = "Email is already being used!";
                         echo "<br><div class='center text-danger'>$emailErr</div>";
                         $isIn = true;
@@ -156,6 +154,7 @@ class UserController extends AControllerBase
                 if ($isIn) {
                     return $this->html($post, 'edit');
                 } else {
+                    $password1 = password_hash($data["password1"], PASSWORD_BCRYPT);
                     $post->setPassword($password1);
                     $post->save();
                     return $this->redirect("?c=auth&a=login");

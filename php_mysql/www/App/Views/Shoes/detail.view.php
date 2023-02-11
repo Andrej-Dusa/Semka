@@ -99,6 +99,9 @@
         </li>
     </ul>
 </div>
+<?php if (($auth->isLogged() && $auth->getLoggedUserId()->getAdmin() == 1) || ($auth->isLogged() && $_SESSION['user']->getId() == $post->getIdUser())) {?>
+    <a href="?c=review&a=delete&id=<?= $post->getId()?>" class="btn btn-danger">Delete</a>
+<?php } ?>
 <?php } ?>
 <p class ="review-title">We want to know your opinion</p>
 <?php if ($auth->isLogged()) {?>

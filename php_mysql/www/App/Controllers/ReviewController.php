@@ -39,7 +39,7 @@ class ReviewController extends AControllerBase
                 $post->setIdShoe($id_shoe);
                 $post->setIdUser($id_user);
                 $post->save();
-                return $this->redirect("?c=shoes");
+                return $this->redirect("?c=shoes&a=detail&shoeId=" . $id_shoe);
             }
         }
         return $this->redirect("?c=shoes&a=detail&shoeId=" . $id_shoe);
