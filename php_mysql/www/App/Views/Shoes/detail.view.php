@@ -64,7 +64,7 @@
                             </div>
                             <div class="cart mt-4 align-items-center">
                                 <?php if ($auth->isLogged()) {?>
-                                    <button class="button-buy">Add to cart</button>
+                                    <a href="?c=cart&a=add&id_shoe=<?= $data->getId()?>&id_user=<?= $auth->getLoggedUserId()->getId()?>"><button class="button-buy">Add to cart</button></a>
                                 <?php }else {?>
                                     <p class="warning">
                                         You have to be logged in if you want to be able to buy our products.
