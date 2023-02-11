@@ -84,6 +84,12 @@ class ShoesController extends AControllerBase
         return $this->html($posts);
     }
 
+    public function detail(): Response
+    {
+        $posts = Shoes::getOne($_GET['shoeId']);
+        return $this->html($posts);
+    }
+
     public function save(): Response
     {
         $id = $this->request()->getValue("id");

@@ -24,17 +24,17 @@
 <!--Product gallery-->
 <div class="container">
     <?php /* @var \App\Models\Shoes[] $data */ ?>
-    <?php if ($auth->getLoggedUserId()->getAdmin() == 1) {?>
+    <?php if ($auth->isLogged() && $auth->getLoggedUserId()->getAdmin() == 1) {?>
     <a href="?c=shoes&a=add" class="btn btn-dark">Pridaj</a>
     <?php } ?>
     <div class="row">
         <?php foreach ($data as $row) { ?>
         <div class="col-sm-4">
-            <div class="panel panel-primary" onclick="location.href='?c=home';">
+            <div class="panel panel-primary" onclick="location.href='?c=shoes&a=detail&shoeId=<?= $row->getId() ?>';">
                 <div class="panel-body"><img src=<?= $row->getImageRef()?> class="img-responsive" style="width:100%" alt="Image"></div>
                 <div class="panel-heading"><?= $row->getTitle()?></div>
                 <div class="panel-footer"><?= $row->getPrice()?>€</div>
-                <?php if ($auth->getLoggedUserId()->getAdmin() == 1) {?>
+                <?php if ($auth->isLogged() && $auth->getLoggedUserId()->getAdmin() == 1) {?>
                 <a href="?c=shoes&a=delete&id=<?= $row->getId()?>" class="btn btn-danger">Delete</a>
                 <a href="?c=shoes&a=edit&id=<?= $row->getId()?>" class="btn btn-dark">Edit</a>
                 <?php } ?>
