@@ -94,3 +94,13 @@ function validateRegistration() {
     }
     return true;
 }
+
+function validateReview() {
+    let rating = document.getElementById("ratingIn").value;
+    if (rating == "") {
+        alert("Rating must be filled!");
+        return false
+    }
+
+    return true;
+}

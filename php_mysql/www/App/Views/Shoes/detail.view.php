@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../php_mysql/www/public/css/main.css">
+    <link rel="stylesheet" href="../php_mysql/www/public/css/checkout.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
+    <script src="../../../public/js/script.js"></script>
 </head>
 <body>
 <!--Single item container-->
@@ -80,4 +81,52 @@
         </div>
     </div>
 </div>
+<p class ="review-title">Reviews</p>
+<?php $reviews = \App\Models\Review::getAll("id_shoe = ?", [$data->getId()]);
+            foreach($reviews as $post) { ?>
+<div class="review-table">
+    <ul>
+        <li class="name-of-customer">
+            <?= \App\Models\User::getOne($post->getIdUser())->getName() ?>
+        </li>
+        <li class="rating">
+            <?= $post->getRating() ?>/10
+        </li>
+    </ul>
+    <ul class="comment-box">
+        <li class="comment">
+            <?= $post->getComment() ?>
+        </li>
+    </ul>
+</div>
+<?php } ?>
+<p class ="review-title">We want to know your opinion</p>
+<?php if ($auth->isLogged()) {?>
+    <form action="?c=review&a=add&shoeId=<?= $data->getId() ?>&userId=<?= $auth->getLoggedUserId()->getId() ?>" method="post" onsubmit="return validateReview()">
+<?php } ?>
+    <div class="rating-box">
+        <div class="rating-input">
+            <label for="text"></label>
+            <input type="text" class="form-control" name="rating" id="ratingIn" placeholder="Enter rating from 1-10">
+        </div>
+        <div class="comment-input">
+            <label for="text"></label>
+            <textarea type="text" class="form-control" name="comment" id="commentIn" placeholder="Enter your comment on product" rows="2"></textarea>
+        </div>
+        <?php if ($auth->isLogged()) {?>
+        <div>
+            <button class="button-review">Submit</button>
+        </div>
+        <?php }else {?>
+        <p class="warning">
+            You have to be logged in if you want to leave reviews.
+        </p>
+        <form action="?c=auth&a=login" method="post"">
+        <button class="button-buy">Log in</button>
+    </form>
+<?php } ?>
+</div>
+<?php if ($auth->isLogged()) {?>
+</form>
+<?php } ?>
 </body>

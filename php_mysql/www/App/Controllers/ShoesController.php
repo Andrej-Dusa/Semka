@@ -86,7 +86,8 @@ class ShoesController extends AControllerBase
 
     public function detail(): Response
     {
-        $posts = Shoes::getOne($_GET['shoeId']);
+        $shoeId = $this->request()->getValue("shoeId");
+        $posts = Shoes::getOne($shoeId);
         return $this->html($posts);
     }
 
