@@ -68,7 +68,9 @@
                                     <p class="warning">
                                         You have to be logged in if you want to be able to buy our products.
                                     </p>
+                                    <form action="?c=auth&a=login" method="post"">
                                     <button class="button-buy">Log in</button>
+                                    </form>
                                 <?php } ?>
                             </div>
                         </div>
