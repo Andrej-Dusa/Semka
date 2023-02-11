@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controllers;
-
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\User;
@@ -82,7 +80,7 @@ class UserController extends AControllerBase
         if ($post != null) {
             $post->delete();
         }
-        return $this->redirect("?c=shoes");
+        return $this->redirect("?c=auth&a=logout");
     }
 
     public function edit(): Response{

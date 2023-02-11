@@ -1,4 +1,5 @@
-<?php /**@var \App\Models\User $data*/ ?>
+<?php /**@var \App\Models\User $data*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +54,8 @@
                 <hr class="mb-4">
                 <button class="button-buy-checkout" type="submit">Edit</button>
             </form>
+            <a href="?c=user&a=delete&id=<?= $data->getId()?>" ><button class="button-buy-checkout">Delete</button></a>
+
         </div>
     </div>
 </div>

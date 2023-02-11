@@ -44,9 +44,15 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Clothing</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="?c=user&a=edit&id=<?= $auth->getLoggedUserId()->getId()?>">Men</a>
-            </li>
+            <?php if (!$auth->isLogged()) { ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="?c=auth&a=login">Profile</a>
+                </li>
+            <?php } else { ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="?c=user&a=edit&id=<?= $auth->getLoggedUserId()->getId()?>">Profile</a>
+                </li>
+            <?php } ?>
             <li class="nav-item">
                 <a class="nav-link" href="#">Woman</a>
             </li>
