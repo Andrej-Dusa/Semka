@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../php_mysql/www/public/css/main.css">
-    <link rel="stylesheet" href="../php_mysql/www/public/css/checkout.css">
+    <link rel="stylesheet" href="../../../public/css/main.css">
+    <link rel="stylesheet" href="../../../public/css/checkout.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

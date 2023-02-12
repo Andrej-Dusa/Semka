@@ -42,7 +42,7 @@
                 <a class="nav-link" href="?c=shoes">Shoes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Clothing</a>
+                <a class="nav-link" href="?c=cart&a=cart">Cart</a>
             </li>
             <?php if (!$auth->isLogged()) { ?>
                 <li class="nav-item">
