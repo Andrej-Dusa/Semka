@@ -9,6 +9,16 @@ function validateInput() {
         return false
     }
 
+    let sale = document.getElementById("saleIn").value;
+    if (isNaN(sale)) {
+        alert("Sale is not a number or it is lower then 0");
+        return false
+    }
+    if(sale < 0) {
+        alert("Sale can't be lower then 0 or higher then 100");
+        return false
+    }
+
     let title = document.getElementById("titleIn").value;
     if (title == "") {
         alert("Title must be filled");

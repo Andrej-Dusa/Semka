@@ -22,11 +22,13 @@ class ShoesController extends AControllerBase
             $post->setImageRef($data["image_ref"]);
             $post->setPrice($data["price"]);
             $post->setDescription($data["description"]);
+            $post->setSale($data["sale"]);
 
             $title = $data["title"];
             $image_ref = $data["image_ref"];
             $price = $data["price"];
             $description = $data["description"];
+            $sale = $data['sale'];
 
             if (empty($title)) {
                 $titleErr = "Title can't be empty!";
@@ -52,6 +54,12 @@ class ShoesController extends AControllerBase
             } else if (empty($description)) {
                 $descriptionErr = "Description can't be empty!";
                 echo "<br><div class='center text-danger'>$descriptionErr</div>";
+            }else if (is_nan($sale)) {
+                $priceErr = "Sale must be a number!";
+                echo "<br><div class='center text-danger'>$priceErr</div>";
+            } else if ($sale < 0 || $sale > 100) {
+                $priceErr = "Sale must be between 0-100!";
+                echo "<br><div class='center text-danger'>$priceErr</div>";
             } else {
                 $post->save();
                 return $this->redirect("?c=shoes");

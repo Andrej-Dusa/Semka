@@ -133,7 +133,7 @@
             </li>
         </ul>
     </div>
-    <p class="copyright">&copy; 2017-2019 Urban Store</p>
+    <p class="copyright">&copy; 2022-2023 Urban Store</p>
 </footer>
 </body>
 </html>

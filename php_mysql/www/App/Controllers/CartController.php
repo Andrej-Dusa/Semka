@@ -23,20 +23,23 @@ class CartController extends AControllerBase
             $id_user = $this->request()->getValue("id_user");
             $post->setIdShoe($id_shoe);
             $post->setIdUser($id_user);
+            $post->setQuantity(1);
 
             $post->save();
 
         }
-        return $this->html();
+        return $this->redirect("?c=cart&a=cart");
     }
 
     public function delete(): Response{
         $id = $this->request()->getValue("id");
-        $post = Cart::getOne($id);
-        if ($post != null) {
-            $post->delete();
+        $post = Cart::getAll("id_user = ?", [$_SESSION['user']->getId()]);
+        foreach ($post as $item) {
+            if ($item->getIdShoe() == $id) {
+                $item->delete();
+            }
         }
-        return $this->redirect("?c=cart&a=load");
+        return $this->redirect("?c=cart&a=cart");
     }
 
     public function load(): JsonResponse
