@@ -24,7 +24,7 @@
 <div class="jumbotron">
     <div class="container text-center">
         <h1 class="title">Urban Store</h1>
-        <p class="under_title">Clothes make a man</p>
+        <p class="under_title">Shoes make a man</p>
     </div>
 </div>
 <!--Navbar-->
@@ -54,20 +54,7 @@
                 </li>
             <?php } ?>
             <li class="nav-item">
-                <a class="nav-link" href="#">Woman</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link text-danger" href="#">Sales %</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
             </li>
             <span class="example-spacer"></span>
             <li class="nav-item">
@@ -87,14 +74,14 @@
 </div>
 <!--Footer-->
 <footer class="container-fluid text-center">
-    <p class="under_title">Autumn style</p>
-    <p class="simple_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a mattis mi, a condimentum
-        diam. Praesent ultrices rutrum massa ut pretium. In hac habitasse platea dictumst. Integer vel vulputate sem,
-        vitae dapibus sem. Nam id diam ac quam cursus ullamcorper id nec ex. Donec tempor tempus libero sit amet lobortis. Nulla quis egestas
-        justo. Vivamus pellentesque ipsum at efficitur imperdiet. Nunc auctor, purus vel pulvinar facilisis, ex ex
-        blandit mi, ultrices cursus massa ex elementum quam. Fusce ut lectus lorem. Fusce dictum viverra nibh, at
-        bibendum lectus accumsan nec. Sed vel est at nisl accumsan tempor vel eget nisi. Integer rhoncus, mi in
-        pellentesque fermentum, lectus libero fermentum erat, nec mattis libero risus eget sem.
+    <p class="under_title">STORIES, STYLE, AND SPORTING GOODS</p>
+    <p class="footer-text">Through sports, we have the power to change lives. Sports keep us fit. They keep us mindful.
+        They bring us together. Athletes inspire us. They help us to get up and get moving. And sporting goods featuring
+        the latest technologies help us beat our personal best. adidas is home to the runner, the basketball player, the
+        soccer kid, the fitness enthusiast, the yogi. And even the weekend hiker looking to escape the city.
+        The Urban store are everywhere and anywhere. In sports. In music. On life’s stages. Before the whistle blows,
+        during the race, and at the finish line. We’re here to support creators. To improve their game.
+        To live their lives. And to change the world.
     </p>
 
     <p class="under_title">Help and contacts</p>
@@ -109,27 +96,27 @@
         </ul>
         <ul class="footer-table">
             <li class="footer-line">
-                <a class="footer-link">Cookie settings</a>
+                <a class="footer-link">Order Status</a>
             </li>
             <li class="footer-line">
-                <a class="footer-link">Payment method</a>
+                <a class="footer-link">Shipping and Delivery</a>
             </li>
             <li class="footer-line">
-                <a class="footer-link">Nieco nieco</a>
+                <a class="footer-link">Returns</a>
             </li>
             <li class="footer-line">
-                <a class="footer-link">Nieco nieco</a>
+                <a class="footer-link">Contact Us</a>
             </li>
             <li class="footer-line">
-                <a class="footer-link">Nieco nieco</a>
+                <a class="footer-link">How To Clean</a>
             </li>
         </ul>
         <ul class="footer-table">
             <li class="footer-line">
-                <a class="footer-link">Cookie settings</a>
+                <a class="footer-link">About Us</a>
             </li>
             <li class="footer-line">
-                <a class="footer-link">Payment method</a>
+                <a class="footer-link">Careers</a>
             </li>
         </ul>
     </div>
