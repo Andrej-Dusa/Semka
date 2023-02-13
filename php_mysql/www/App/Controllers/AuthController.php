@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Config\Configuration;
 use App\Core\AControllerBase;
+use App\Core\Responses\JsonResponse;
 use App\Core\Responses\Response;
 
 /**
@@ -49,5 +50,17 @@ class AuthController extends AControllerBase
     {
         $this->app->getAuth()->logout();
         return $this->html();
+    }
+
+    /**
+     * Logout a user
+     * @return \App\Core\Responses\ViewResponse
+     */
+    public function loggedId(): JsonResponse
+    {
+        if($this->app->getAuth()->isLogged()){
+            return $this->json($this->app->getAuth()->getLoggedUserId());
+        }
+        return $this->json(null);
     }
 }

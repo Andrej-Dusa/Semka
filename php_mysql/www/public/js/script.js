@@ -119,6 +119,9 @@ async function filterShoes(query){
     const response = await fetch('?c=shoes&a=all&substr=' + query);
     const shoes = await response.json();
 
+    const response1 = await fetch('?c=auth&a=loggedId');
+    const logged = await response1.json();
+
     document.getElementById('shoes').innerHTML = '';
 
     shoes.forEach(function (shoe){
@@ -129,8 +132,16 @@ async function filterShoes(query){
                 <div class="panel-body"><img src=${shoe.image_ref} class="img-responsive" style="width:100%" alt="Image"></div>
                 <div class="panel-heading">${shoe.title}</div>
                 <div class="panel-footer">${shoe.price}€</div>
-            </div>`
-
+            `
+        if (logged != null && logged.admin == 1) {
+            newBlock.innerHTML +=
+                `<a href="?c=shoes&a=delete&id=<?= $row->getId()?>" class="btn btn-danger">Delete</a>
+                <a href="?c=shoes&a=edit&id=<?= $row->getId()?>" class="btn btn-dark">Edit</a>
+                </div>`
+        } else {
+            newBlock.innerHTML +=
+                `</div>`
+        }
         document.getElementById('shoes').appendChild(newBlock);
     })
 }
