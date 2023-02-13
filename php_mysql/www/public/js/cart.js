@@ -9,29 +9,29 @@ async function getCart() {
         let totalprice = 0;
 
 
-        shoes.forEach(function(x) {
-            const newReview = document.createElement('div');
-            newReview.innerHTML =
+        shoes.forEach(function(shoe) {
+            const newBlock = document.createElement('div');
+            newBlock.innerHTML =
                 `<li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">${x.title}</h6>
+                        <h6 class="my-0">${shoe.title}</h6>
                     </div>
-                    <img class="img-cart img-responsive" src=${x.image_ref} alt="Image">
-                    <span class="text-muted">${x.price}€</span>
-                    <a href="?c=cart&a=delete&id=${x.id}" class="btn btn-danger">X</a>
+                    <img class="img-cart img-responsive" src=${shoe.image_ref} alt="Image">
+                    <span class="text-muted">${shoe.price}€</span>
+                    <a href="?c=cart&a=delete&id=${shoe.id}" class="btn btn-danger">X</a>
                 </li>`
 
-            document.getElementById('cart1').appendChild(newReview);
-            totalprice += x.price;
+            document.getElementById('cart1').appendChild(newBlock);
+            totalprice += shoe.price;
         })
         parseFloat(totalprice).toFixed(2);
-        const newReview = document.createElement('div');
-        newReview.innerHTML =
+        const newBlokc = document.createElement('div');
+        newBlokc.innerHTML =
         ` <li class="list-group-item d-flex justify-content-between">
                     <span>Total (EURO)</span>
                     <strong>${parseFloat(totalprice).toFixed(2)}€</strong>
                 </li>`
-        document.getElementById('cart1').appendChild(newReview);
+        document.getElementById('cart1').appendChild(newBlokc);
     }
 }
 
@@ -49,29 +49,29 @@ async function deleteCart() {
             let totalprice = 0;
 
 
-            shoes.forEach(function(x) {
-                const newReview = document.createElement('div');
-                newReview.innerHTML =
+            shoes.forEach(function(shoe) {
+                const newBlock = document.createElement('div');
+                newBlock.innerHTML =
                     `<li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">${x.title}</h6>
+                        <h6 class="my-0">${shoe.title}</h6>
                     </div>
-                    <img class="img-cart img-responsive" src=${x.image_ref} alt="Image">
-                    <span class="text-muted">${x.price}€</span>
-                    <a href="?c=cart&a=delete&id=${x.id}" class="btn btn-danger" id="cart-delete">X</a>
+                    <img class="img-cart img-responsive" src=${shoe.image_ref} alt="Image">
+                    <span class="text-muted">${shoe.price}€</span>
+                    <a href="?c=cart&a=delete&id=${shoe.id}" class="btn btn-danger" id="cart-delete">X</a>
                 </li>`
 
-                document.getElementById('cart1').appendChild(newReview);
-                totalprice += x.price;
+                document.getElementById('cart1').appendChild(newBlock);
+                totalprice += shoe.price;
             })
             parseFloat(totalprice).toFixed(2);
-            const newReview = document.createElement('div');
-            newReview.innerHTML =
+            const newBlock = document.createElement('div');
+            newBlock.innerHTML =
                 ` <li class="list-group-item d-flex justify-content-between">
                     <span>Total (EURO)</span>
                     <strong>${parseFloat(totalprice).toFixed(2)}€</strong>
                 </li>`
-            document.getElementById('cart1').appendChild(newReview);
+            document.getElementById('cart1').appendChild(newBlock);
         });
     }
 }

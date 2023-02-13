@@ -10,6 +10,12 @@
     color: aliceblue;
 }
 
+.homepage-title{
+    font-family: Silkscreen;
+    font-size: calc(2rem + 1.5vw);
+    color: black;
+}
+
 .under_title{
     font-family: Teko;
     font-size: calc(0.75rem + 1.5vw);
@@ -226,3 +232,4 @@ input.form-control{
     margin-left: 2rem;
     margin-top: 2.4rem;
 }
+

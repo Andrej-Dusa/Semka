@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../../public/css/main.css">
+    <link rel="stylesheet" href="../../../public/css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +24,13 @@
 <!--Product gallery-->
 <div class="container">
     <?php /* @var \App\Models\Shoes[] $data */ ?>
+    <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="search" onkeyup="filterShoes(this.value)"/>
+    </div>
     <?php if ($auth->isLogged() && $auth->getLoggedUserId()->getAdmin() == 1) {?>
     <a href="?c=shoes&a=add" class="btn btn-dark">Pridaj</a>
     <?php } ?>
-    <div class="row">
+    <div class="row" id="shoes">
         <?php foreach ($data as $row) { ?>
         <div class="col-sm-4">
             <div class="panel panel-primary" onclick="location.href='?c=shoes&a=detail&shoeId=<?= $row->getId() ?>';">
@@ -44,4 +47,5 @@
     </div>
 </div><br>
 </body>
+<script src="../../../public/js/script.js"></script>
 </html>

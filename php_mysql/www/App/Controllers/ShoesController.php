@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\AControllerBase;
+use App\Core\Responses\JsonResponse;
 use App\Core\Responses\Response;
 use App\Models\Shoes;
 
@@ -90,6 +91,19 @@ class ShoesController extends AControllerBase
     {
         $posts = Shoes::getAll();
         return $this->html($posts);
+    }
+
+    public function all(): JsonResponse
+    {
+        $substr = $this->request()->getValue("substr");
+        $posts = Shoes::getAll();
+        $data = array();
+        foreach ($posts as $items) {
+            if (str_contains(strtolower($items->getTitle()), strtolower($substr)) ){
+                array_push($data, $items);
+            }
+        }
+        return $this->json($data);
     }
 
     public function detail(): Response

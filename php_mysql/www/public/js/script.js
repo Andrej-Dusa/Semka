@@ -114,3 +114,23 @@ function validateReview() {
 
     return true;
 }
+
+async function filterShoes(query){
+    const response = await fetch('?c=shoes&a=all&substr=' + query);
+    const shoes = await response.json();
+
+    document.getElementById('shoes').innerHTML = '';
+
+    shoes.forEach(function (shoe){
+        const newBlock = document.createElement('div');
+        newBlock.classList.add("col-sm-4");
+        newBlock.innerHTML =
+            `<div class="panel panel-primary" onclick="location.href='?c=shoes&a=detail&shoeId='+${shoe.id};">
+                <div class="panel-body"><img src=${shoe.image_ref} class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-heading">${shoe.title}</div>
+                <div class="panel-footer">${shoe.price}€</div>
+            </div>`
+
+        document.getElementById('shoes').appendChild(newBlock);
+    })
+}
