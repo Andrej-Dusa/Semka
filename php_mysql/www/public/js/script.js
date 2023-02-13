@@ -107,6 +107,14 @@ function validateRegistration() {
 
 function validateReview() {
     let rating = document.getElementById("ratingIn").value;
+    if (isNaN(rating)) {
+        alert("Rating must be number!");
+        return false
+    }
+    if (rating < 0 || rating > 10) {
+        alert("Rating must be number between 0-10!");
+        return false
+    }
     if (rating == "") {
         alert("Rating must be filled!");
         return false
